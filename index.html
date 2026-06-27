@@ -1,1 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>LoR Path of Champions</title>
+
+    <meta name="referrer" content="no-referrer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <div class="container">
+
+            <div class="header-left">
+
+                <h1 class="title">
+                    LoR PATH OF CHAMPIONS
+                </h1>
+
+                <p class="subtitle">
+                    Champion Relic Guide
+                </p>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="sync-status">
+
+                    <span class="sync-dot"></span>
+
+                    <span id="syncText">
+                        Google Sheet
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= TAB ================= -->
+
+    <section class="tab-wrapper">
+
+        <div class="container">
+
+            <div
+                id="tabContainer"
+                class="tab-container">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="container mt-8">
+
+        <div class="search-panel">
+
+            <div class="search-box">
+
+                <input
+
+                    id="searchInput"
+
+                    type="text"
+
+                    placeholder="Search Champion..."
+
+                >
+
+            </div>
+
+            <div class="counter-box">
+
+                <span>
+
+                    Champion :
+
+                </span>
+
+                <strong id="championCount">
+
+                    0
+
+                </strong>
+
+            </div>
+
+            <button
+
+                id="resetButton"
+
+                class="reset-button">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FILTER ================= -->
+
+    <section class="container mt-8">
+
+        <div class="filter-panel">
+
+            <!-- Region -->
+
+            <div class="filter-group">
+
+                <div class="filter-title">
+
+                    Region
+
+                </div>
+
+                <div
+
+                    id="regionFilters"
+
+                    class="filter-list">
+
+                </div>
+
+            </div>
+
+            <!-- Epic -->
+
+            <div class="filter-group">
+
+                <div class="filter-title">
+
+                    Epic
+
+                </div>
+
+                <div
+
+                    id="epicFilters"
+
+                    class="filter-list">
+
+                </div>
+
+            </div>
+
+            <!-- Nova -->
+
+            <div class="filter-group">
+
+                <div class="filter-title">
+
+                    Nova
+
+                </div>
+
+                <div
+
+                    id="novaFilters"
+
+                    class="filter-list">
+
+                </div>
+
+            </div>
+
+            <!-- Defiance -->
+
+            <div class="filter-group">
+
+                <div class="filter-title">
+
+                    Defiance
+
+                </div>
+
+                <div
+
+                    id="defianceFilters"
+
+                    class="filter-list">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CARD ================= -->
+
+    <section class="container mt-10">
+
+        <div
+
+            id="championGrid"
+
+            class="champion-grid">
+
+        </div>
+
+    </section>
+
+    <!-- ================= LOADING ================= -->
+
+    <div
+
+        id="loading"
+
+        class="loading hidden">
+
+        <div class="loading-box">
+
+            <div class="spinner"></div>
+
+            <div>
+
+                Loading Google Sheet...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= EMPTY ================= -->
+
+    <div
+
+        id="emptyState"
+
+        class="hidden">
+
+        <div class="empty-box">
+
+            No Champion Found
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================================== -->
+
+<div
+
+    id="modal"
+
+    class="modal hidden">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-window">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2
+
+                    id="modalChampion"
+
+                    class="modal-title">
+
+                </h2>
+
+                <div
+
+                    id="modalRegion"
+
+                    class="modal-region">
+
+                </div>
+
+            </div>
+
+            <button
+
+                id="closeModal"
+
+                class="modal-close">
+
+                ✕
+
+            </button>
+
+        </div>
+
+        <div
+
+            id="modalBody"
+
+            class="modal-body">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================================== -->
+
+<div
+
+    id="imageViewer"
+
+    class="viewer hidden">
+
+    <div class="viewer-overlay"></div>
+
+    <img
+
+        id="viewerImage"
+
+        src="">
+
+</div>
+
+<!-- ===================================================== -->
+
+<script src="js/config.js"></script>
+
+<script src="js/state.js"></script>
+
+<script src="js/api.js"></script>
+
+<script src="js/filter.js"></script>
+
+<script src="js/render.js"></script>
+
+<script src="js/modal.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
